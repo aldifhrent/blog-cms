@@ -1,7 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    formats: ["image/webp"],
+    remotePatterns: [
+      {
+        hostname: "images.ctfassets.net",
+      },
+      {
+        hostname: "randomuser.me",
+      },
+      {
+        hostname: "doodleipsum.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

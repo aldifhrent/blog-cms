@@ -1,0 +1,9 @@
+Hero Section
+
+Deskripsi:
+Bagian atas (banner besar) menampilkan elemen visual seperti gambar atau video yang mewakili tema blog. Misalnya, jika blog tentang traveling, tampilkan gambar destinasi populer.
+Fitur:
+Gambar atau video resolusi tinggi.
+Judul besar dan menarik.
+Paragraf pendek yang menjelaskan tujuan blog.
+Call-to-Action (CTA) seperti "Jelajahi Blog" atau "Mulai Membaca
