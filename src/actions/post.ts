@@ -1,5 +1,5 @@
 import { client } from "@/lib/client";
-import { TypeTravelContentSkeleton } from "@/types/post";
+import { TypeTravelContentSkeleton } from "@/types/contentful";
 
 export default async function getPost() {
   try {

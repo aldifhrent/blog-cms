@@ -5,14 +5,15 @@ import { useState, useEffect } from "react";
 
 import { useParams } from "next/navigation";
 import { client } from "@/lib/client";
-import { IPostFields, TypeTravelContentSkeleton } from "@/types/post";
 import Header from "@/components/header";
 import PostContent from "@/components/post.content";
 import Loading from "@/app/loading";
+import { TypeTravelContentSkeleton } from "@/types/contentful";
+import { IPostCardWithFields, IPostCardWithoutFields } from "@/types/posts";
 
 export default function ArticlePage() {
   const params = useParams<{ slug: string }>(); // Access params from Next.js hook
-  const [article, setArticle] = useState<IPostFields | null>(null);
+  const [article, setArticle] = useState<IPostCardWithoutFields | null>(null);
 
   const getArticleBySlug = async () => {
     try {
@@ -21,6 +22,7 @@ export default function ArticlePage() {
         limit: 1,
         "fields.slug": params.slug,
       });
+      console.log("FETCH BY SLUG", data.items);
       if (data.items.length > 0) {
         setArticle(data.items[0].fields);
       } else {
@@ -43,7 +45,7 @@ export default function ArticlePage() {
   // Periksa apakah `article.category` adalah array
   const category =
     Array.isArray(article.category) && article.category.length > 0
-      ? article.category[0]?.fields?.category || ""
+      ? article.category || ""
       : typeof article.category === "string"
       ? article.category
       : "";

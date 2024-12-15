@@ -1,30 +1,27 @@
 "use client";
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react-hooks/rules-of-hooks */
+
 import { client } from "@/lib/client";
+import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 
-export const getCategories = () => {
+const useCategories = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        // Ambil entries dengan field "category"
         const response = await client.getEntries({
-          content_type: "category",
+          content_type: "travel",
+          "fields.category[exists]": true,
         });
-
-        // Ambil kategori dari response dan set ke state
+        console.log("FETCH CATEGORIES", response);
         const fetchedCategories = response.items.map(
-          (item: any) => item.fields.category
+          (item) => item.fields.category
         );
-        setCategories(fetchedCategories);
+        setCategories(fetchedCategories as Array<string>);
       } catch (err) {
-        setError("Failed to fetch categories.");
+        console.log("ERROR FETCHING", err);
       } finally {
         setLoading(false);
       }
@@ -33,5 +30,36 @@ export const getCategories = () => {
     fetchCategories();
   }, []);
 
-  return { categories, loading, error };
+  return { categories, loading };
+};
+
+export default useCategories;
+
+export const useCategoryDetails = (params: string) => {
+  const [categories, setCategories] = useState<string[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await client.getEntries<any>({
+          content_type: "travel",
+          "fields.category": params,
+        });
+        console.log("FETCH CATEGORIES", response);
+        const fetchedCategories = response.items.map(
+          (item) => item.fields.category
+        );
+        setCategories(fetchedCategories as Array<string>);
+      } catch (err) {
+        console.log("ERROR FETCHING", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  return { categories, loading };
 };

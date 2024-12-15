@@ -11,6 +11,23 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      // Example: Disable the rule for the console.log statement
+      "no-console": "warn", // 'warn' instead of 'error' to allow console statements
+
+      // Example: Enable a specific rule with a custom configuration
+      "react/prop-types": "off", // Disable prop-types rule in React
+
+      // Example: Set the indentation to 2 spaces
+      indent: ["error", 2],
+
+      // Example: Set linebreak style
+      "linebreak-style": ["error", "unix"],
+      "no-unused-vars": "true",
+      // Add more rules as needed
+    },
+  },
 ];
 
 export default eslintConfig;

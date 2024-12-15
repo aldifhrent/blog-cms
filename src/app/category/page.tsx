@@ -1,23 +1,25 @@
 "use client";
-import { getCategories } from "@/actions/categories";
+
+import useCategories from "@/actions/categories";
 import Header from "@/components/header";
 import TextCatalogue from "@/components/text.catalogue";
 import Link from "next/link";
 
 export default function Categories() {
-  const { categories } = getCategories(); // Mengambil data kategori
+  const { categories } = useCategories(); // Mengambil data kategori
+
+  // Flatten the categories array and remove duplicates
+  const uniqueCategories = Array.from(new Set(categories.flat()));
 
   return (
     <div>
       <Header />
-
       <div className="px-4 lg:px-[152px] py-10">
         {/* Judul Halaman */}
-        <TextCatalogue text_first="Explore Categories" />
-
+        <TextCatalogue text_first="Explore" text_second=" Categories" />
         {/* Grid Kategori */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-          {categories.map((category, index) => (
+          {uniqueCategories.map((category: string, index) => (
             <Link
               href={`/category/${category}`}
               key={index}

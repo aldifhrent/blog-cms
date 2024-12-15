@@ -5,7 +5,7 @@ import type {
   EntrySkeletonType,
   LocaleCode,
 } from "contentful";
-import { Document as RichTextDocuments } from "@contentful/rich-text-types";
+
 export interface TypeContentField {
   title: EntryFieldTypes.Text;
   slug?: EntryFieldTypes.Text;
@@ -29,27 +29,8 @@ export interface IContentfulAsset {
   };
 }
 
-export type TypeTravelContentSkeleton = EntrySkeletonType<
-  TypeContentField,
-  "travel"
->;
+export type TypeTravelContentSkeleton = EntrySkeletonType<TypeContentField>;
 export type TypeBlogPost<
   Modifiers extends ChainModifiers,
   Locales extends LocaleCode = LocaleCode
 > = Entry<TypeTravelContentSkeleton, Modifiers, Locales>;
-
-export interface ICategory {
-  fields: {
-    category: string;
-  };
-}
-
-export interface IPostFields {
-  title: string;
-  createdAt: string;
-  body: RichTextDocuments;
-  image: IContentfulAsset;
-  category: ICategory[];
-  shortDescription?: string;
-  slug?: string;
-}

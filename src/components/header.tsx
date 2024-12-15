@@ -15,7 +15,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="px-4 py-6 lg:px-[152px] sticky top-0 bg-slate-200 z-50 h-20">
+    <header className="px-4 py-6 lg:px-[152px] sticky top-0  z-50 h-20">
       <div className="flex justify-between items-center">
         <Link href="/">
           <h1 className="font-bold text-xl">
@@ -25,7 +25,7 @@ export default function Header() {
         </Link>
 
         <div className="hidden lg:flex items-center gap-10">
-          <nav className={cn("flex items-center space-x-4 lg:space-x-6")}>
+          <nav className="flex items-center space-x-4 lg:space-x-6">
             {navLinks.map((route) => (
               <Link
                 key={route.href}

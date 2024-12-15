@@ -7,7 +7,6 @@ import axios from "axios";
 export const useAuthors = () => {
   const [authors, setAuthors] = useState([]); // State to store the authors data
   const [loading, setLoading] = useState<boolean>(true); // Loading state
-  const [error, setError] = useState<string | null>(null); // Error state
 
   useEffect(() => {
     const fetchAuthors = async () => {
@@ -18,7 +17,7 @@ export const useAuthors = () => {
         setAuthors(response.data.results);
         setLoading(false);
       } catch (err) {
-        setError("Failed to fetch authors.");
+        console.log(err);
         setLoading(false);
       }
     };
@@ -26,5 +25,5 @@ export const useAuthors = () => {
     fetchAuthors(); // Fetch authors data on mount
   }, []); // Empty dependency array means this runs once on mount
 
-  return { authors, loading, error };
+  return { authors, loading };
 };

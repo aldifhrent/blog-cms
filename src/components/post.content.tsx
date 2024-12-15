@@ -1,6 +1,7 @@
 import { Document as RichTextDocuments } from "@contentful/rich-text-types";
 import { format } from "date-fns";
 import Image from "next/image";
+import Author from "./author";
 import Categories from "./categories";
 import RichText from "./rich.text";
 type PostContentProps = {

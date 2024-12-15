@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Link from "next/link";
 import Image from "next/image";
-export default function FeaturedPostCard({
+export default function CategoryDetailsCard({
   image,
+  altImageName,
   category,
   title,
   createdAt,
@@ -16,18 +17,19 @@ export default function FeaturedPostCard({
         height={262}
         src={`https:${image}`}
         className="rounded-[8px] p-2"
-        alt={title || ""}
+        alt={altImageName || ""}
       />
       <div className="flex flex-col p-4">
         {/* Menampilkan kategori secara terpisah */}
         <div className="mt-8 flex flex-wrap gap-2">
           {category.map((cat: any, index: any) => (
-            <p
+            <Link
+              href={`/category/${cat}`}
               key={index}
               className="p-1 bg-[#DFF1F0] text-[#666666] text-center"
             >
               {cat}
-            </p>
+            </Link>
           ))}
         </div>
 
