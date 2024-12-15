@@ -1,4 +1,4 @@
-import FeaturedPost from "@/components/featured.post";
+import FeaturedPost from "@/components/post/featured.post";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Hero from "@/components/hero";

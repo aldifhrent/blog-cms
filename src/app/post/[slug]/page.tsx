@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { client } from "@/lib/client";
 import Header from "@/components/header";
-import PostContent from "@/components/post.content";
+import PostContent from "@/components/post/post.content";
 import Loading from "@/app/loading";
 import { TypeTravelContentSkeleton } from "@/types/contentful";
 import { IPostCardWithFields, IPostCardWithoutFields } from "@/types/posts";

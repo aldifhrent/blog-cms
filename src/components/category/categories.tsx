@@ -1,8 +1,8 @@
 "use client";
 
-import TextCatalogue from "./text.catalogue";
 import Link from "next/link";
 import useCategories from "@/actions/categories";
+import TextCatalogue from "../text.catalogue";
 
 export default function Categories() {
   const { categories } = useCategories(); // Mengambil data kategori

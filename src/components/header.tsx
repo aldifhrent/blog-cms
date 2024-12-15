@@ -15,7 +15,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="px-4 py-6 lg:px-[152px] sticky top-0  z-50 h-20">
+    <header className="px-4 py-6 lg:px-[152px] h-20">
       <div className="flex justify-between items-center">
         <Link href="/">
           <h1 className="font-bold text-xl">

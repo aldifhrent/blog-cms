@@ -36,7 +36,7 @@ const useCategories = () => {
 export default useCategories;
 
 export const useCategoryDetails = (params: string) => {
-  const [categories, setCategories] = useState<string[]>([]);
+  const [categories, setCategories] = useState<any[]>([]); // Use any[] or define a proper type
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -46,11 +46,7 @@ export const useCategoryDetails = (params: string) => {
           content_type: "travel",
           "fields.category": params,
         });
-        console.log("FETCH CATEGORIES", response);
-        const fetchedCategories = response.items.map(
-          (item) => item.fields.category
-        );
-        setCategories(fetchedCategories as Array<string>);
+        setCategories(response.items);
       } catch (err) {
         console.log("ERROR FETCHING", err);
       } finally {
@@ -59,7 +55,7 @@ export const useCategoryDetails = (params: string) => {
     };
 
     fetchCategories();
-  }, []);
+  }, [params]); // Make sure to include params as a dependency
 
   return { categories, loading };
 };

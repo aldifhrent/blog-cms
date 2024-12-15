@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Link from "next/link";
 import Image from "next/image";
-export default function FeaturedPostCard({
+import { format } from "date-fns";
+import { IContentfulAsset } from "@/types/contentful";
+import { ICategory } from "@/types/posts";
+
+export default function CategoryDetailsCard({
   image,
   category,
   title,
@@ -20,14 +24,15 @@ export default function FeaturedPostCard({
       />
       <div className="flex flex-col p-4">
         {/* Menampilkan kategori secara terpisah */}
-        <div className="mt-8 flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2">
           {category.map((cat: any, index: any) => (
-            <p
+            <Link
+              href={`/category/${cat}`}
               key={index}
               className="p-1 bg-[#DFF1F0] text-[#666666] text-center"
             >
-              {cat}
-            </p>
+              {cat.fields.category}
+            </Link>
           ))}
         </div>
 
@@ -35,7 +40,7 @@ export default function FeaturedPostCard({
           {title}
         </h1>
         <div className="flex items-center gap-3 mt-4 text-sm">
-          <div>{createdAt}</div>
+          {format(new Date(createdAt), "dd MMMM yyyy")}
         </div>
         <p className="max-w-[431px] mt-6 text text-[15px]">
           {shortDescription}

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import getPost from "@/actions/post";
-import TextCatalogue from "./text.catalogue";
 import { format } from "date-fns";
-import Categories from "./categories";
 import FeaturedPostCard from "./featured.post.card";
+import TextCatalogue from "../text.catalogue";
+import Categories from "../category/categories";
 
 export default async function FeaturedPost() {
   const data = await getPost();
