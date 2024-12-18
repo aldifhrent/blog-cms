@@ -28,3 +28,12 @@ export interface ICategory {
     category: string;
   };
 }
+
+
+export interface searchPost {
+  fields: { 
+    title: string;
+    slug: string;
+    image?: IContentfulAsset,
+  };
+}

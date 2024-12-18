@@ -27,7 +27,7 @@ export default function PostContent({
     : category;
 
   return (
-    <section className="px-4 py-6 lg:px-[152px] mt-20 h-full">
+    <section className="px-4 py-6 lg:px-[152px] mt-10 h-full">
       <div className="flex justify-between gap-20">
         <div className="flex flex-col">
           <p

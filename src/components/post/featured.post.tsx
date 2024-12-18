@@ -14,7 +14,7 @@ export default async function FeaturedPost() {
       <div className="flex flex-col lg:flex-row justify-between gap-20 w-full min-h-[900px]">
         <div className="flex flex-col w-full">
           <TextCatalogue text_first="Featured" text_second="Post" />
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-[56px] mt-[56px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-[56px] mt-[56px]">
             {data?.map((post: any, _idx: number) => {
               return (
                 <FeaturedPostCard
