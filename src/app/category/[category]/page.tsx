@@ -14,7 +14,6 @@ import Image from "next/image";
 export default function CategoryDetailPage() {
   const params = useParams<{ category: string }>();
   const { categories, loading } = useCategoryDetails(params.category);
-  console.log(categories);
   if (loading) {
     return <Loading />;
   }

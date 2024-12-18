@@ -15,7 +15,7 @@ const useCategories = () => {
           content_type: "travel",
           "fields.category[exists]": true,
         });
-        console.log("FETCH CATEGORIES", response);
+
         const fetchedCategories = response.items.map(
           (item) => item.fields.category
         );

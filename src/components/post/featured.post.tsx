@@ -8,7 +8,6 @@ import Categories from "../category/categories";
 
 export default async function FeaturedPost() {
   const data = await getPost();
-  console.log(data);
   return (
     <section className="container mt-40 mx-auto ">
       <div className="flex flex-col lg:flex-row justify-between gap-20 w-full min-h-[900px]">
