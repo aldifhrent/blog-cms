@@ -22,7 +22,6 @@ export default function ArticlePage() {
         limit: 1,
         "fields.slug": params.slug,
       });
-      console.log("FETCH BY SLUG", data.items);
       if (data.items.length > 0) {
         setArticle(data.items[0].fields);
       } else {
